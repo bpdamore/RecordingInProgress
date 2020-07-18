@@ -1,5 +1,5 @@
 import configparser
-from utils.hue_util import initializeHue
+# from utils.hue_util import initializeHue
 
 def parseconfig(path):
     print("Checking config....")
@@ -8,8 +8,9 @@ def parseconfig(path):
     hue_connected = config.getboolean('HUE', 'connected', fallback=False)
     hue_ip = config.get('HUE',"ip", fallback="None")
     hue_dhcp = config.getboolean('HUE','dhcp', fallback=True)
-    window = config.get('OS', 'window', fallback="CptHost")
-    config['OS'] = {'window': window}
+    macWindow = config.get('OS', 'macWindow', fallback="CptHost")
+    windowsWindow = config.get('OS', 'windowsWindow', fallback="CptHost")
+    config['OS'] = {'macWindow': macWindow, 'windowsWindow':windowsWindow}
     lightsToChange = config.get('HUE', 'lightsToChange').replace("'","’")
 
     if hue_ip == 'None' or hue_dhcp == True:
