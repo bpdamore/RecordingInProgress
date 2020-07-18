@@ -1,5 +1,5 @@
 import configparser
-# from utils.hue_util import initializeHue
+from utils.hue_util import initializeHue
 
 def parseconfig(path):
     print("Checking config....")
